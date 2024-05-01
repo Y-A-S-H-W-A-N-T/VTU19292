@@ -5,15 +5,13 @@ import Item from './item'
 
 function Products() {
 
-    const [n,setN] = useState('10')
+    const [n,setN] = useState('')
+    const [min,setMin] = useState('')
+    const [max,setMax] = useState('')
     const [company,setCompany] = useState('AMZ')
     const [type,setType] = useState('Computer')
     const [products,setProducts] = useState(null)
     const [item,setItem] = useState(false)
-    const [range, setRange] = useState({
-        min: '0',
-        max: '1000'
-    })
 
     // DUMMY DATA
     const dummy = [
@@ -55,12 +53,18 @@ function Products() {
     
 
     const GetProducts = async()=>{
-        console.log(n,range.min,range.max)
+        console.log(n,min,max)
         axios.post('http://localhost:8000/products',{n: n, min: range.min, max: range.max, company: company,type: type})
         .then((res)=>{
             setProducts(res.data)
         })
     }
+
+    const [range, setRange] = useState({
+        min: '',
+        max: ''
+    })
+    console.log()
     const RangeSet = (i)=>{
         i==1? setRange({min: 0, max: 500}) : <></>
         i==2? setRange({min: 500, max: 1000}) : <></>
@@ -116,7 +120,6 @@ function Products() {
 
                 <div className="product-list">
                     {/* use dummy variable as dummy data for product showcase */}
-                    {products==null? 'No Products Found, Search for Products': <> </>}
                     {products &&     
                         products.map((val, ind) => (
                             <div>
