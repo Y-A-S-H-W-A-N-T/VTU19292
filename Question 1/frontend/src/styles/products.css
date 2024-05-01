@@ -1,0 +1,110 @@
+.container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f5ddff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    padding: 10px 15px;
+    margin: 0 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #c4344a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #36d239;
+}
+
+.product {
+    margin-top: 50px;
+    background-color: #e5bfe7;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+.Each{
+    justify-content: center;
+}
+
+a{
+    list-style: none;
+    text-decoration: none;
+}
+
+select {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+option {
+    font-size: 16px;
+}
+
+select:hover {
+    border-color: #51ce43;
+}
+select:focus {
+    outline: none;
+    border-color: #26ad2f;
+}
