@@ -15,8 +15,8 @@ function Item({ open, SHOW, item }) {
                         <p>Price: ${item.price}</p><br />
                         <p>Rating: {item.rating}</p><br />
                         <p>Discount: {item.discount}</p><br />
-                        <p>Availability: {item.availability == 'yes' ? 'AVAILABLE ✔️' : 'out of stock 😔'}</p>
-                        {item.availability=='yes'?
+                        <p>Availability: {item.availability === 'yes' ? 'AVAILABLE ✔️' : 'out of stock 😔'}</p>
+                        {item.availability==='yes'?
                         <>
                             <button onClick={()=>alert(`Bought ${item.productName} for $ ${item.price}`)}>BUY</button>
                         </>
