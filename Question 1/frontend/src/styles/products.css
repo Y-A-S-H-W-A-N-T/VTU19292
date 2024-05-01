@@ -95,6 +95,7 @@ select {
     margin-bottom: 10px;
     cursor: pointer;
     transition: border-color 0.3s;
+    margin-left: 30px;
 }
 
 option {
@@ -107,4 +108,14 @@ select:hover {
 select:focus {
     outline: none;
     border-color: #26ad2f;
+}
+
+body{
+    background-color: #eccff9;
+}
+
+h1{
+    font-family: cursive;
+    font-size: 50px;
+    color: #62256f;
 }
