@@ -13,6 +13,30 @@ function Products() {
     const [products,setProcuts] = useState(null)
     const [item,setItem] = useState(false)
 
+    const dummy = [
+        {
+            productName: 'Laptop1',
+            price: 899,
+            rating: 4.5,
+            availability: 'yes',
+            discount: 24
+        },
+        {
+            productName: 'Laptop2',
+            price: 899,
+            rating: 4.5,
+            availability: 'yes',
+            discount: 24
+        },
+        {
+            productName: 'Laptop3',
+            price: 899,
+            rating: 4.5,
+            availability: 'out-of-stock',
+            discount: 24
+        }
+    ]
+
     const [itemval,setItemVal] = useState(null)
 
     console.log(products)
@@ -28,13 +52,24 @@ function Products() {
 
     const GetProducts = async()=>{
         console.log(n,min,max)
-        axios.post('http://localhost:8000/products',{n: n, min: min, max: max, company: company,type: type})
+        axios.post('http://localhost:8000/products',{n: n, min: range.min, max: range.max, company: company,type: type})
         .then((res)=>{
             setProcuts(res.data)
         })
     }
 
-
+    const [range, setRange] = useState({
+        min: '',
+        max: ''
+    })
+    console.log()
+    const RangeSet = (i)=>{
+        i==1? setRange({min: 0, max: 500}) : <></>
+        i==2? setRange({min: 500, max: 1000}) : <></>
+        i==3? setRange({min: 1000, max: 5000}) : <></>
+        i==4? setRange({min: 5000, max: 10000}) : <></>
+        i==5? setRange({min: 0, max: 10000}) : <></>
+    }
   return (
     <div className='ALL'>
                 <div>
@@ -42,8 +77,15 @@ function Products() {
                 </div>
             <div className="container">
                 <label>Products:</label><input type='text' placeholder='Number of products' onChange={(e) => setN(e.target.value)} className="input-field" />
-                <label>Starting Price:</label><input type='text' placeholder='Minimum price' onChange={(e) => setMin(e.target.value)} className="input-field" />
-                <label>Budget:</label><input type='text' placeholder='Maximum price' onChange={(e) => setMax(e.target.value)} className="input-field" /><br></br>
+                <label>BUDGET: </label>
+                <select onChange={(e)=>RangeSet(e.target.value)}>
+                        <option value="1">$0 - $500</option>
+                        <option value="1">$0 - $500</option>
+                        <option value="2">$500 - $1000</option>
+                        <option value="3">$1000 - $5000</option>
+                        <option value="4">$5000 - $10000</option>
+                        <option value="5">$10000+</option>
+                </select>
                 <br></br>
                 <label>Select Company</label>
                 <select value={company} onChange={(e)=>setCompany(e.target.value)}>
@@ -75,8 +117,8 @@ function Products() {
                 <button onClick={GetProducts} className="btn">Get Products</button>
 
                 <div className="product-list">
-                    {products &&
-                        products.map((val, ind) => (
+                    {dummy &&
+                        dummy.map((val, ind) => (
                             <div>
                                 <div className="product" key={ind} onClick={()=>{
                                     SHOW()

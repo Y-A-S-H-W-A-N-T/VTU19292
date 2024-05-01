@@ -16,6 +16,15 @@ function Item({ open, SHOW, item }) {
                         <p>Rating: {item.rating}</p><br />
                         <p>Discount: {item.discount}</p><br />
                         <p>Availability: {item.availability == 'yes' ? 'AVAILABLE ✔️' : 'out of stock 😔'}</p>
+                        {item.availability=='yes'?
+                        <>
+                            <button onClick={()=>alert(`Bought ${item.productName} for $ ${item.price}`)}>BUY</button>
+                        </>
+                        :
+                        <>
+                            <p style={{opacity: 0.5, background:'red', width: '10%', marginLeft: 'auto', marginRight: 'auto', alignContent: 'center', padding: 10 }} onClick={()=>alert(`${item.productName} is out of Stock.`)}>OUT OF STOCK</p>
+                        </>
+                        }
                     </div>
                 </div>
             </div>
