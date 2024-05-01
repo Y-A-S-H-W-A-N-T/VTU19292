@@ -10,9 +10,10 @@ function Products() {
     const [max,setMax] = useState('')
     const [company,setCompany] = useState('AMZ')
     const [type,setType] = useState('Computer')
-    const [products,setProcuts] = useState(null)
+    const [products,setProducts] = useState(null)
     const [item,setItem] = useState(false)
 
+    // DUMMY DATA
     const dummy = [
         {
             productName: 'Laptop1',
@@ -36,6 +37,7 @@ function Products() {
             discount: 24
         }
     ]
+    // THIS IS A DUMMY DATA FOR TESTING
 
     const [itemval,setItemVal] = useState(null)
 
@@ -54,7 +56,7 @@ function Products() {
         console.log(n,min,max)
         axios.post('http://localhost:8000/products',{n: n, min: range.min, max: range.max, company: company,type: type})
         .then((res)=>{
-            setProcuts(res.data)
+            setProducts(res.data)
         })
     }
 
@@ -117,8 +119,9 @@ function Products() {
                 <button onClick={GetProducts} className="btn">Get Products</button>
 
                 <div className="product-list">
-                    {dummy &&
-                        dummy.map((val, ind) => (
+                    {/* use dummy variable as dummy data for product showcase */}
+                    {products &&     
+                        products.map((val, ind) => (
                             <div>
                                 <div className="product" key={ind} onClick={()=>{
                                     SHOW()
